@@ -80,6 +80,7 @@ def index():
 def blog():    
     get_blog_id = request.args.get('id')
     get_user_id = request.args.get('user')
+    blogs = Blog.query.all()
 
     if get_blog_id:
         blog_id = int(get_blog_id)
@@ -93,11 +94,10 @@ def blog():
     
     if get_user_id:
         user = User.query.get( int(get_user_id) )
-        blogs = Blog.query.filter_by( owner_id=user.id )
+        blogs = user.blogs
 
 
 
-    blogs = Blog.query.all()
     return render_template('/blogs.html', loggedin=check_loggedin(session), page_header="All Blogs", blogs=blogs)
 
 
