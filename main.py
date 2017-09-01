@@ -62,7 +62,7 @@ def blog():
 
 
     blogs = Blog.query.all()
-    return render_template('/blogs.html', page_header="All Blogs", blogs=blogs)
+    return render_template('/blogs.html', page_header="All Blogs", blogs=blogs, user=user)
 
 
 @app.route('/blog_form')
