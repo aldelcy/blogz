@@ -39,8 +39,10 @@
             </div>
             <div class="row">
                 <div class="col">
-
-                    
+                    <br>
+                    {% if loggedin %}
+                        <span style="color:orange;">{{ session['username'] }}</span> is logged in 
+                    {% endif %}
 
                 </div>
             </div>
