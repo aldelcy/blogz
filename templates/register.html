@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col">
+                <h1>User Sign Up</h1>
+                <form action="/register" method="post">
+                    
+                    <label for="user_name">User Name:</label>
+                    <input type="text" class="form-control" id="user_name" name="user_name" value="{{ user_name }}">
+                    {% if user_name_error %}
+                        <span class="badge badge-danger"> {{ user_name_error }} </span>
+                    {% endif %}
+                    <br>
+                    
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" value="{{ password }}">
+                    {% if password_error %}
+                        <span class="badge badge-danger"> {{ password_error }} </span>
+                    {% endif %}
+                    <br>
+                    
+                    <label for="verify_password">Verify Password:</label>
+                    <input type="password" class="form-control" id="verify_password" name="verify_password" value="{{ verify_password }}">
+                    {% if verify_password_error %}
+                        <span class="badge badge-danger"> {{ verify_password_error }} </span>
+                    {% endif %}
+                    <br>
+
+                    <button type="submit" class="btn btn-primary">
+                        Register
+                    </button>
+                </form>
+
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+{% endblock %}
