@@ -143,6 +143,7 @@ def login():
         user = User.query.filter_by( username=form_username ).first()
 
         if user and form_password == user.password:
+            session['username'] = user.username
             return redirect('/blog?user='+str(user.id))
         else:
             error = " This username and password don't exist "
